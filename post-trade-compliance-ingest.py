@@ -36,7 +36,7 @@ def index_doc(client, vectors, content, source, page_number, link):
         }
 
     response = client.index(
-        index = "posttrade", #Use your index 
+        index = "index-name", #Use your index here
         body = indexDocument,
     #    id = '1', commenting out for now
         refresh = False
@@ -54,8 +54,8 @@ config = botocore.config.Config(connect_timeout=300, read_timeout=300)
 bedrock = boto3.client('bedrock-runtime' , 'us-east-1', config = config)
 
 #Setup Opensearch connectionand clinet
-host = '14dzfsbbbt70yuz57f23.us-west-2.aoss.amazonaws.com' #use Opensearch Serverless host here
-region = 'us-west-2'# set region of you Opensearch severless collection
+host = 'oss-host-name' #use Opensearch Serverless host here
+region = 'aws-region'# set region of you Opensearch severless collection
 service = 'aoss'
 credentials = boto3.Session().get_credentials() #Use enviroment credentials
 auth = AWSV4SignerAuth(credentials, region, service) 
