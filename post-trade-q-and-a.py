@@ -13,8 +13,8 @@ config = botocore.config.Config(connect_timeout=300, read_timeout=300)
 bedrock = boto3.client('bedrock-runtime' , 'us-east-1', config = config)
 
 #Setup Opensearch connectionand clinet
-host = '14dzfsbbbt70yuz57f23.us-west-2.aoss.amazonaws.com' #use Opensearch Serverless host here
-region = 'us-west-2'# set region of you Opensearch severless collection
+host = 'oss-host-name' #use Opensearch Serverless host here
+region = 'aws-region'# set region of you Opensearch severless collection
 service = 'aoss'
 credentials = boto3.Session().get_credentials() #Use enviroment credentials
 auth = AWSV4SignerAuth(credentials, region, service) 
@@ -60,7 +60,7 @@ def get_knn_results(client, userVectors):
 
     response = client.search(
         body=query,
-        index='posttrade',
+        index='index-name',
     )
 
     print(response)
