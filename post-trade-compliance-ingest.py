@@ -44,9 +44,8 @@ def index_doc(client, vectors, content, source, page_number, link):
     return response
 
 #Manually specify doc and link for now
-#loader = PyPDFLoader("CELEX_32017R0590_EN_TXT.pdf")
-link = "https://www.esma.europa.eu/sites/default/files/library/2016-1452_guidelines_mifid_ii_transaction_reporting.pdf"
-loader = PyPDFLoader("2016-1452_guidelines_mifid_ii_transaction_reporting.pdf")
+#loader = PyPDFLoader("file.pdf")
+link = "link"
 pages = loader.load_and_split()
 
 
